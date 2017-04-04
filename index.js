@@ -39,7 +39,8 @@ function annotatedFiles (
   })
     .then((jsFiles) => pFilter(
       jsFiles,
-      createAnnotationFilterer({ dirPath })
+      createAnnotationFilterer({ dirPath }),
+      { concurrency: 1 }
     ))
 }
 
