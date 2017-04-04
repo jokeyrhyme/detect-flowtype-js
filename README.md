@@ -24,7 +24,7 @@ locate any files that contain `// @flow` or `/* @flow */`
 
 ### `hasAnnotatedFiles({ dirPath: string }): Promise<boolean>`
 
-`true` if any files that contain `// @flow` or `/* @flow */`
+`true` if any files contain `// @flow` or `/* @flow */`
 
 
 ## See Also
