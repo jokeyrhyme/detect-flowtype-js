@@ -1,4 +1,4 @@
-# detect-flowtype-js
+# detect-flowtype-js [![AppVeyor Status](https://img.shields.io/appveyor/ci/jokeyrhyme/detect-flowtype-js/master.svg)](https://ci.appveyor.com/project/jokeyrhyme/detect-flowtype-js) [![npm](https://img.shields.io/npm/v/detect-flowtype-js.svg?maxAge=2592000)](https://www.npmjs.com/package/detect-flowtype-js) [![Travis CI Status](https://travis-ci.org/jokeyrhyme/detect-flowtype-js.svg?branch=master)](https://travis-ci.org/jokeyrhyme/detect-flowtype-js)
 
 scan a directory to see if [FlowType](https://flow.org/) is in use
 

@@ -51,5 +51,13 @@
     "jest": "jest",
     "pretest": "npm run eslint && npm run fixpack",
     "test": "npm run jest && npm run flow_check"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jokeyrhyme/detect-flowtype-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jokeyrhyme/detect-flowtype-js/issues"
+  },
+  "homepage": "https://github.com/jokeyrhyme/detect-flowtype-js#readme"
 }
