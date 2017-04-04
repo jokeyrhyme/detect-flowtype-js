@@ -33,4 +33,10 @@ locate any files that contain `// @flow` or `/* @flow */`
 
 -   [globby](https://github.com/sindresorhus/globby)
 
+-   [graceful-fs](https://github.com/isaacs/node-graceful-fs)
+
 -   [ignore-by-default](https://github.com/novemberborn/ignore-by-default)
+
+-   [p-filter](https://github.com/sindresorhus/p-filter)
+
+-   [pify](https://github.com/sindresorhus/pify)

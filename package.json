@@ -3,7 +3,13 @@
   "description": "scan a directory to see if FlowType is in use",
   "version": "1.0.0",
   "author": "Ron Waldon <jokeyrhyme@gmail.com> (https://github.com/jokeyrhyme)",
-  "dependencies": {},
+  "dependencies": {
+    "globby": "^6.1.0",
+    "graceful-fs": "*",
+    "ignore-by-default": "^1.0.1",
+    "p-filter": "^1.0.0",
+    "pify": "^2.3.0"
+  },
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-standard": "^7.1.0",
