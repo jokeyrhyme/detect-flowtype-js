@@ -1,1 +1,3 @@
- [![npm](https://img.shields.io/npm/v/detect-flowtype-js.svg?maxAge=2592000)](https://www.npmjs.com/package/detect-flowtype-js)
+# detect-flowtype-js
+
+scan a directory to see if [FlowType](https://flow.org/) is in use

@@ -5,6 +5,6 @@ before_script:
   - npm install --global yarn
   - npm install
 test:
-  image: 'node:7'
+  image: 'node:6'
   script:
     - npm test

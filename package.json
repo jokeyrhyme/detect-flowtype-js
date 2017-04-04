@@ -1,18 +1,8 @@
 {
   "name": "detect-flowtype-js",
+  "description": "scan a directory to see if FlowType is in use",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "flow_check": "flow check",
-    "eslint": "eslint --fix --cache .",
-    "fixpack": "fixpack",
-    "pretest": "npm run fixpack"
-  },
-  "keywords": [],
   "author": "Ron Waldon <jokeyrhyme@gmail.com> (https://github.com/jokeyrhyme)",
-  "license": "ISC",
   "dependencies": {},
   "devDependencies": {
     "eslint": "^3.19.0",
@@ -24,7 +14,26 @@
     "flow-bin": "^0.42.0"
   },
   "engines": {
-    "node": ">=7",
-    "npm": ">=4"
+    "node": ">=6",
+    "npm": ">=3"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "detect",
+    "enabled",
+    "flow",
+    "flowtype",
+    "using"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint --fix --cache .",
+    "fixpack": "fixpack",
+    "flow_check": "flow check",
+    "pretest": "npm run fixpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
