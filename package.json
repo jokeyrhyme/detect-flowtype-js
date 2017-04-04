@@ -1,0 +1,30 @@
+{
+  "name": "detect-flowtype-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "flow_check": "flow check",
+    "eslint": "eslint --fix --cache .",
+    "fixpack": "fixpack",
+    "pretest": "npm run fixpack"
+  },
+  "keywords": [],
+  "author": "Ron Waldon <jokeyrhyme@gmail.com> (https://github.com/jokeyrhyme)",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "fixpack": "^2.3.1",
+    "flow-bin": "^0.42.0"
+  },
+  "engines": {
+    "node": ">=7",
+    "npm": ">=4"
+  }
+}
