@@ -11,7 +11,7 @@
     "graceful-fs": "*",
     "ignore-by-default": "^1.0.1",
     "p-filter": "^1.0.0",
-    "pify": "^2.3.0"
+    "pify": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
