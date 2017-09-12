@@ -2,12 +2,11 @@
 'use strict';
 
 const path = require('path');
+const { promisify } = require('util');
 
-const fs = require('graceful-fs');
+const { access, readFile } = require('graceful-fs');
 const globby = require('globby');
 const ignore = require('ignore-by-default').directories();
-const pFilter = require('p-filter');
-const pify = require('pify');
 
 /* ::
 type Options = {
@@ -17,38 +16,44 @@ type Options = {
 
 const FLOW_REGEXP = /(\/\/\s*@flow)|(\/\*\s*@flow\s*\*\/)/;
 
-function createAnnotationFilterer(
+async function annotatedFiles(
   { dirPath } /* : Options */
-) /* : (filePath: string) => Promise<boolean> */ {
-  return function(filePath /* : string */) /* : Promise<boolean> */ {
-    return pify(fs.readFile)(
-      path.join(dirPath, filePath),
-      'utf8'
-    ).then(contents => FLOW_REGEXP.test(contents));
-  };
-}
-
-function annotatedFiles({ dirPath } /* : Options */) /* : Promise<string[]> */ {
-  return globby(['**/*.{mjs,js,jsx}'], {
+) /* : Promise<string[]> */ {
+  const jsFiles = await globby(['**/*.{mjs,js,jsx}'], {
     cwd: dirPath,
     dot: false,
     ignore,
     nodir: true,
-  }).then(jsFiles =>
-    pFilter(jsFiles, createAnnotationFilterer({ dirPath }), { concurrency: 1 })
-  );
+  });
+  const result = [];
+  for (const jsFile of jsFiles) {
+    const contents = await promisify(readFile)(
+      path.join(dirPath, jsFile),
+      'utf8'
+    );
+    if (FLOW_REGEXP.test(contents)) {
+      result.push(jsFile);
+    }
+  }
+  return result;
 }
 
-function hasAnnotatedFiles(
+async function hasAnnotatedFiles(
   { dirPath } /* : Options */
 ) /* : Promise<boolean> */ {
-  return annotatedFiles({ dirPath }).then(result => result.length > 0);
+  const result = await annotatedFiles({ dirPath });
+  return result.length > 0;
 }
 
-function hasFlowConfig({ dirPath } /* : Options */) /* : Promise<boolean> */ {
-  return pify(fs.access)(path.join(dirPath, '.flowconfig'))
-    .then(() => true)
-    .catch(() => false);
+async function hasFlowConfig(
+  { dirPath } /* : Options */
+) /* : Promise<boolean> */ {
+  try {
+    await promisify(access)(path.join(dirPath, '.flowconfig'));
+    return true;
+  } catch (err) {
+    return false;
+  }
 }
 
 module.exports = {

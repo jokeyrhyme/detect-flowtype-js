@@ -36,9 +36,7 @@
   "dependencies": {
     "globby": "^6.1.0",
     "graceful-fs": "*",
-    "ignore-by-default": "^1.0.1",
-    "p-filter": "^1.0.0",
-    "pify": "^3.0.0"
+    "ignore-by-default": "^1.0.1"
   },
   "devDependencies": {
     "eslint": "^4.6.1",
@@ -49,7 +47,7 @@
     "npx": "^9.6.0"
   },
   "engines": {
-    "node": ">=6",
+    "node": ">=8",
     "npm": ">=3"
   },
   "eslintIgnore": [

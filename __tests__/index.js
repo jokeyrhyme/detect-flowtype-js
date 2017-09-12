@@ -16,28 +16,26 @@ test('exports an object', () => {
 
 const { annotatedFiles, hasAnnotatedFiles, hasFlowConfig } = lib;
 
-test('finds flow-enabled files', () => {
+test('finds flow-enabled files', async () => {
   const options = { dirPath: FLOW_FIXTURE_PATH };
-  return annotatedFiles(options)
-    .then(filePaths => {
-      expect(Array.isArray(filePaths)).toBe(true);
-      expect(filePaths.length).toBe(2);
-    })
-    .then(() => hasAnnotatedFiles(options))
-    .then(result => expect(result).toBe(true))
-    .then(() => hasFlowConfig(options))
-    .then(result => expect(result).toBe(true));
+
+  const filePaths = await annotatedFiles(options);
+  expect(Array.isArray(filePaths)).toBe(true);
+  expect(filePaths.length).toBe(2);
+
+  expect(await hasAnnotatedFiles(options)).toBe(true);
+
+  expect(await hasFlowConfig(options)).toBe(true);
 });
 
-test('finds no flow-enabled files', () => {
+test('finds no flow-enabled files', async () => {
   const options = { dirPath: NO_FLOW_FIXTURE_PATH };
-  return annotatedFiles(options)
-    .then(filePaths => {
-      expect(Array.isArray(filePaths)).toBe(true);
-      expect(filePaths.length).toBe(0);
-    })
-    .then(() => hasAnnotatedFiles(options))
-    .then(result => expect(result).toBe(false))
-    .then(() => hasFlowConfig(options))
-    .then(result => expect(result).toBe(false));
+
+  const filePaths = await annotatedFiles(options);
+  expect(Array.isArray(filePaths)).toBe(true);
+  expect(filePaths.length).toBe(0);
+
+  expect(await hasAnnotatedFiles(options)).toBe(false);
+
+  expect(await hasFlowConfig(options)).toBe(false);
 });
