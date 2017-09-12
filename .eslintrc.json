@@ -1,17 +1,19 @@
 {
-  "compilerOptions": {
-    "target": "ES6",
-    "allowSyntheticDefaultImports": true
+  "env": {
+    "node": true
   },
-  "exclude": [
-    "node_modules"
-  ],
   "extends": [
     "eslint:recommended",
-    "plugin:node/recommended",
-    "standard"
+    "plugin:import/recommended",
+    "plugin:node/recommended"
   ],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "script"
+  },
   "plugins": [
-    "node"
+    "node",
+    "import",
+    "promise"
   ]
 }

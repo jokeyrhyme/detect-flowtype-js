@@ -27,6 +27,11 @@ locate any files that contain `// @flow` or `/* @flow */`
 `true` if any files contain `// @flow` or `/* @flow */`
 
 
+### `hasFlowConfig({ dirPath: string }): Promise<boolean>`
+
+`true` if there is a ".flowconfig" file
+
+
 ## See Also
 
 -   [FlowType](https://flow.org/)
