@@ -1,6 +1,6 @@
 {
   "name": "detect-flowtype",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "scan a directory to see if FlowType is in use",
   "keywords": [
     "detect",
