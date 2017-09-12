@@ -1,10 +1,37 @@
 {
   "name": "detect-flowtype",
-  "description": "scan a directory to see if FlowType is in use",
   "version": "1.0.0",
-  "author": "Ron Waldon <jokeyrhyme@gmail.com> (https://github.com/jokeyrhyme)",
+  "description": "scan a directory to see if FlowType is in use",
+  "keywords": [
+    "detect",
+    "enabled",
+    "flow",
+    "flowtype",
+    "using"
+  ],
+  "homepage": "https://github.com/jokeyrhyme/detect-flowtype-js#readme",
   "bugs": {
     "url": "https://github.com/jokeyrhyme/detect-flowtype-js/issues"
+  },
+  "license": "MIT",
+  "author": "Ron Waldon <jokeyrhyme@gmail.com> (https://github.com/jokeyrhyme)",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jokeyrhyme/detect-flowtype-js.git"
+  },
+  "scripts": {
+    "eslint": "eslint --fix --cache .",
+    "flow": "npx -q flow-bin@^0.54.1 check",
+    "jest": "jest",
+    "nsp": "npx -q nsp check",
+    "sort-package-json": "npx -q sort-package-json",
+    "pretest": "npm run eslint && npm run prettier && npm run sort-package-json",
+    "test": "npm run jest && npm run nsp && npm run flow",
+    "prettier": "npx -q prettier --list-different --write \"{,!(build|coverage|dist|flow-typed|typings|vendor)/**/}*.{css,js,jsx,less,scss,ts,tsx}\" || exit 0"
   },
   "dependencies": {
     "globby": "^6.1.0",
@@ -15,23 +42,20 @@
   },
   "devDependencies": {
     "eslint": "^4.6.1",
-    "eslint-config-standard": "^10.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-node": "^5.1.0",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.0",
-    "fixpack": "^2.3.1",
-    "flow-bin": "^0.54.0",
-    "jest": "^21.0.0"
+    "jest": "^21.0.2",
+    "npx": "^9.6.0"
   },
   "engines": {
     "node": ">=6",
     "npm": ">=3"
   },
-  "files": [
-    "index.js"
+  "eslintIgnore": [
+    "coverage",
+    "flow-typed"
   ],
-  "homepage": "https://github.com/jokeyrhyme/detect-flowtype-js#readme",
   "jest": {
     "collectCoverage": true,
     "coverageThreshold": {
@@ -40,25 +64,8 @@
       }
     }
   },
-  "keywords": [
-    "detect",
-    "enabled",
-    "flow",
-    "flowtype",
-    "using"
-  ],
-  "license": "MIT",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jokeyrhyme/detect-flowtype-js.git"
-  },
-  "scripts": {
-    "eslint": "eslint --fix --cache .",
-    "fixpack": "fixpack",
-    "flow_check": "flow check",
-    "jest": "jest",
-    "pretest": "npm run eslint && npm run fixpack",
-    "test": "npm run jest && npm run flow_check"
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }
