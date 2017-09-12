@@ -45,7 +45,14 @@ function hasAnnotatedFiles(
   return annotatedFiles({ dirPath }).then(result => result.length > 0);
 }
 
+function hasFlowConfig({ dirPath } /* : Options */) /* : Promise<boolean> */ {
+  return pify(fs.access)(path.join(dirPath, '.flowconfig'))
+    .then(() => true)
+    .catch(() => false);
+}
+
 module.exports = {
   annotatedFiles,
   hasAnnotatedFiles,
+  hasFlowConfig,
 };
