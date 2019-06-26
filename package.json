@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "globby": "^7.0.0",
-    "graceful-fs": "*",
+    "graceful-fs": "4.1.15",
     "ignore-by-default": "^1.0.1"
   },
   "devDependencies": {
