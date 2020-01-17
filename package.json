@@ -44,7 +44,7 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.0",
     "jest": "^21.0.2",
-    "npx": "^10.0.1"
+    "npx": "^10.2.1"
   },
   "engines": {
     "node": ">=8",
